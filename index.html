@@ -53,7 +53,7 @@
         <p>Elegante Sport</p>
     </section>
     <section id="fotos">
-        <img src="assets/iconoCamara.png" id="fotoCamara">
+        <img src="assets/camara.png" id="fotoCamara">
         <h3>Comparte tus fotos</h3>
         <p>Subí tus fotos al álbum</p>
         <button class="ubicacion">Ir al álbum</button>
@@ -79,25 +79,30 @@
         </div>
     </section>
     <section id="regalos">
-        <img src="" id="cajaRegalos">
+        <img src="assets/regaloIcono.png" id="cajaRegalos">
         <h3>Regalos</h3>
-        <p>Lo más importante es tu presencia</p>
+        <p id="presencia">Lo más importante es tu presencia</p>
         <p>Pero si deseas hacernos un regalo aquí tienes nuestros datos</p>
-        <button>Datos Bancarios</button>
+        <button class="ubicacion">Datos Bancarios</button>
     </section>
     <section id="asistencias">
         <h3>Confirmar Asistencia</h3>
-        <p>Por favor, confirmar asistencia</p>
-        <form>
-            <input type="text" name="" id="" placeholder="Nombre y Apellido">
-            <input type="text" name="" id="" placeholder="¿Asistirás?">
-            <input type="text" name="" id="" placeholder="Escribe tu mensaje">
-            <button>Enviar</button>
+        <p>Es muy importante confirmar asistencia</p>
+        <form id="formulario">
+            <input type="text" name="" id="" placeholder="Nombre y Apellido" class="input">
+            <select name="" id="opciones" aria-placeholder="¿Asistiras?" class="input">
+                <option value="">Si</option>
+                <option value="">No</option>
+            </select>
+            <input type="text" name="" id="" placeholder="Escribe tu mensaje" class="input mensaje">
+            <button class="ubicacion enviar">Enviar</button>
         </form>
     </section>
     <footer id="final">
         <p>Te esperamos</p>
-        <p>Cristian y Miriam</p>
+        <p id="nombres">Cristian <br> 
+            y  
+            Miriam <br></p>
     </footer>
 </body>
 </html>
