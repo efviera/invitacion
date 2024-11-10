@@ -1,27 +1,26 @@
-document.getElementById("formulario").addEventListener("submit", function(event) {
-    event.preventDefault(); // Evita que el formulario se envíe normalmente
+document.getElementById("formulario").addEventListener("submit", function(e) {
+    e.preventDefault(); // Prevenir el envío normal del formulario
 
-    // Captura los valores de los inputs
-    const nombre = document.querySelector("input[placeholder='Nombre y Apellido']").value;
-    const asistencia = document.getElementById("opciones").value;
-    const mensaje = document.querySelector("input[placeholder='Escribe tu mensaje']").value;
+    var formData = {
+      name: document.getElementById("name").value,
+      email: document.getElementById("opciones").value,
+      attendance: document.getElementById("mensaje").value
+    };
 
-    // Enviar los datos a la hoja de Google Sheets
-    fetch("https://script.google.com/macros/s/AKfycbwgCjEeLYsplhqTKECTdBLOhnGjaEWqBobicnSrQr_tkdxKB_LDxOvCweTreqrljXPS5w/exec", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
-        },
-        body: `nombre=${encodeURIComponent(nombre)}&asistencia=${encodeURIComponent(asistencia)}&mensaje=${encodeURIComponent(mensaje)}`
+    fetch("https://script.google.com/macros/s/AKfycbyrTmX_DACQUgO2WtQ2lE8_KS_gn5yYH0YljRYsLzbKU1iK4ghLx2CyvBSgZ3z0-D3ZxQ/exec", { // Aquí va tu URL del script
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(formData)
     })
-    .then(response => response.json())  // Cambiado a json() para procesar la respuesta como JSON
+    .then(response => response.json())
     .then(data => {
-        console.log("Respuesta de la API:", data);  // Mostrar la respuesta de la API en la consola
-        alert("¡Gracias por confirmar!");
+      if (data.result === "success") {
+        alert("¡Confirmación enviada con éxito!");
+      }
     })
     .catch(error => {
-        console.error("Error al enviar los datos:", error);
-        alert("Hubo un error al confirmar la asistencia.");
+      alert("Hubo un error al enviar la confirmación. Inténtalo de nuevo.");
     });
-});
-
+  });
