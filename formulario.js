@@ -7,17 +7,16 @@ document.getElementById("formulario").addEventListener("submit", function(event)
     const mensaje = document.querySelector("input[placeholder='Escribe tu mensaje']").value;
 
     // Enviar los datos a la hoja de Google Sheets
-    fetch("https://script.google.com/macros/s/AKfycbyGg12pcxQ6orUj0-MPB4RsTMTClbPHy9VYR9mug3LmjRhfl8uMB4B9MNh3TwDYIOfZuw/exec", {
+    fetch("https://script.google.com/macros/s/AKfycbyL9z8GE42asFupaUr5Vn61vTMzUOvtSTq-PP_a12-AU9u3seppLkkI1UqOGuHtO_dLMg/exec", {
         method: "POST",
         headers: {
             "Content-Type": "application/x-www-form-urlencoded"
         },
-        body: `nombre=${encodeURIComponent(nombre)}&asistencia=${encodeURIComponent(asistencia)}&mensaje=${encodeURIComponent(mensaje)}`,
-        mode: "no-cors",
+        body: `nombre=${encodeURIComponent(nombre)}&asistencia=${encodeURIComponent(asistencia)}&mensaje=${encodeURIComponent(mensaje)}`
     })
-    .then(response => response.text())  // Usamos text() para ver la respuesta cruda
+    .then(response => response.json())  // Cambiado a json() para procesar la respuesta como JSON
     .then(data => {
-        console.log("Respuesta de la API:", data);  // Mostrar la respuesta cruda en la consola
+        console.log("Respuesta de la API:", data);  // Mostrar la respuesta de la API en la consola
         alert("¡Gracias por confirmar!");
     })
     .catch(error => {
@@ -25,3 +24,4 @@ document.getElementById("formulario").addEventListener("submit", function(event)
         alert("Hubo un error al confirmar la asistencia.");
     });
 });
+
