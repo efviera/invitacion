@@ -7,7 +7,7 @@ document.getElementById("formulario").addEventListener("submit", function(event)
     const mensaje = document.querySelector("input[placeholder='Escribe tu mensaje']").value;
 
     // Enviar los datos a la hoja de Google Sheets
-    fetch("https://script.google.com/macros/s/AKfycbyY5JG-k3C9AqVzmT_93r2RKYO5fTfO534J2FLz4XTDfp8HuKD8DIWOvL79dhFOzCsziA/exec", {
+    fetch("https://script.google.com/macros/s/AKfycbyGg12pcxQ6orUj0-MPB4RsTMTClbPHy9VYR9mug3LmjRhfl8uMB4B9MNh3TwDYIOfZuw/exec", {
         method: "POST",
         headers: {
             "Content-Type": "application/x-www-form-urlencoded"
@@ -23,5 +23,5 @@ document.getElementById("formulario").addEventListener("submit", function(event)
     .catch(error => {
         console.error("Error al enviar los datos:", error);
         alert("Hubo un error al confirmar la asistencia.");
-    });j
+    });
 });
