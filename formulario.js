@@ -15,10 +15,9 @@ document.getElementById("formulario").addEventListener("submit", function(event)
         body: `nombre=${encodeURIComponent(nombre)}&asistencia=${encodeURIComponent(asistencia)}&mensaje=${encodeURIComponent(mensaje)}`,
         mode: "no-cors",
     })
-    .then(response => response.json())
+    .then(response => response.text())  // Usamos text() para ver la respuesta cruda
     .then(data => {
-
-        console.log("Datos enviados exitosamente:", data);
+        console.log("Respuesta de la API:", data);  // Mostrar la respuesta cruda en la consola
         alert("¡Gracias por confirmar!");
     })
     .catch(error => {
