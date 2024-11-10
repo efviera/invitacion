@@ -21,3 +21,6 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
+document.getElementById("conf").addEventListener("click", function(){
+    window.open("https://forms.gle/HLpzmEnbfoqyXiod8", "_blank");
+});
