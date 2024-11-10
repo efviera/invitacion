@@ -7,7 +7,7 @@ document.getElementById("formulario").addEventListener("submit", function(event)
     const mensaje = document.querySelector("input[placeholder='Escribe tu mensaje']").value;
 
     // Enviar los datos a la hoja de Google Sheets
-    fetch("https://script.google.com/macros/s/AKfycbyL9z8GE42asFupaUr5Vn61vTMzUOvtSTq-PP_a12-AU9u3seppLkkI1UqOGuHtO_dLMg/exec", {
+    fetch("https://script.google.com/macros/s/AKfycbwgCjEeLYsplhqTKECTdBLOhnGjaEWqBobicnSrQr_tkdxKB_LDxOvCweTreqrljXPS5w/exec", {
         method: "POST",
         headers: {
             "Content-Type": "application/x-www-form-urlencoded"
