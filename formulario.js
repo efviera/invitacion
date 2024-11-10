@@ -12,7 +12,8 @@ document.getElementById("formulario").addEventListener("submit", function(event)
         headers: {
             "Content-Type": "application/x-www-form-urlencoded"
         },
-        body: `nombre=${encodeURIComponent(nombre)}&asistencia=${encodeURIComponent(asistencia)}&mensaje=${encodeURIComponent(mensaje)}`
+        body: `nombre=${encodeURIComponent(nombre)}&asistencia=${encodeURIComponent(asistencia)}&mensaje=${encodeURIComponent(mensaje)}`,
+        mode: "no-cors",
     })
     .then(response => response.json())
     .then(data => {
